@@ -5,5 +5,5 @@ export class CreateGeneroDto {
   nome: string;
 
   @IsOptional()
-  filmeId: number;
+  filmes: number[];
 }

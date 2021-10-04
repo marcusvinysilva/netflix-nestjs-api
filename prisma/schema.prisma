@@ -21,19 +21,17 @@ model Filme {
 }
 
 model Participante {
-  id              Int      @id @default(autoincrement())
-  nome            String
-  imagem          String?
-  data_nascimento DateTime
-  staff           Boolean
-  ator            Boolean
-  filme           Filme?   @relation(fields: [filmeId], references: [id])
-  filmeId         Int?
+  id             Int     @id @default(autoincrement())
+  nome           String
+  imagem         String?
+  ano_nascimento Int
+  staff          Boolean
+  ator           Boolean
+  filmes         Filme[]
 }
 
 model Genero {
-  id      Int    @id @default(autoincrement())
-  nome    String
-  filme   Filme? @relation(fields: [filmeId], references: [id])
-  filmeId Int?
+  id     Int     @id @default(autoincrement())
+  nome   String
+  filmes Filme[]
 }

@@ -10,12 +10,14 @@ exports.GenerosModule = void 0;
 const common_1 = require("@nestjs/common");
 const generos_service_1 = require("./generos.service");
 const generos_controller_1 = require("./generos.controller");
+const prisma_module_1 = require("../prisma/prisma.module");
 let GenerosModule = class GenerosModule {
 };
 GenerosModule = __decorate([
     (0, common_1.Module)({
         providers: [generos_service_1.GenerosService],
         controllers: [generos_controller_1.GenerosController],
+        imports: [prisma_module_1.PrismaModule],
     })
 ], GenerosModule);
 exports.GenerosModule = GenerosModule;

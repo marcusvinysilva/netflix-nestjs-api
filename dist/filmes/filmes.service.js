@@ -17,7 +17,65 @@ let FilmesService = class FilmesService {
         this.prisma = prisma;
     }
     async createFilme(data) {
-        return this.prisma.filme.create({ data });
+        var _a, _b;
+        const genero = (_a = data.genero) === null || _a === void 0 ? void 0 : _a.map((genero) => ({
+            id: genero,
+        }));
+        const participantes = (_b = data.participantes) === null || _b === void 0 ? void 0 : _b.map((participante) => ({
+            id: participante,
+        }));
+        return this.prisma.filme.create({
+            data: Object.assign(Object.assign({}, data), { participantes: {
+                    connect: participantes,
+                }, genero: {
+                    connect: genero,
+                } }),
+            include: {
+                genero: true,
+                participantes: true,
+            },
+        });
+    }
+    async getAll() {
+        return this.prisma.filme.findMany();
+    }
+    async getOneFilme(filmeId) {
+        return this.prisma.filme.findUnique({
+            where: {
+                id: filmeId,
+            },
+            include: {
+                genero: true,
+                participantes: true,
+            },
+        });
+    }
+    async updateFilme(id, data) {
+        var _a, _b;
+        const genero = (_a = data.genero) === null || _a === void 0 ? void 0 : _a.map((genero) => ({
+            id: genero,
+        }));
+        const participantes = (_b = data.participantes) === null || _b === void 0 ? void 0 : _b.map((participante) => ({
+            id: participante,
+        }));
+        return await this.prisma.filme.update({
+            data: Object.assign(Object.assign({}, data), { participantes: {
+                    connect: participantes,
+                }, genero: {
+                    connect: genero,
+                } }),
+            include: {
+                genero: true,
+                participantes: true,
+            },
+            where: { id },
+        });
+    }
+    async deleteOneFilme(where) {
+        return this.prisma.filme.delete({ where });
+    }
+    async deleteAllFilmes() {
+        return this.prisma.filme.deleteMany();
     }
 };
 FilmesService = __decorate([

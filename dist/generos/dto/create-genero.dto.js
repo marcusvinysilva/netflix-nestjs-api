@@ -19,7 +19,7 @@ __decorate([
 ], CreateGeneroDto.prototype, "nome", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
-    __metadata("design:type", Number)
-], CreateGeneroDto.prototype, "filmeId", void 0);
+    __metadata("design:type", Array)
+], CreateGeneroDto.prototype, "filmes", void 0);
 exports.CreateGeneroDto = CreateGeneroDto;
 //# sourceMappingURL=create-genero.dto.js.map

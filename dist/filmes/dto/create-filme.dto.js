@@ -23,11 +23,19 @@ __decorate([
 ], CreateFilmeDto.prototype, "imagem", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
-    __metadata("design:type", Date)
-], CreateFilmeDto.prototype, "data_lancamento", void 0);
+    __metadata("design:type", Number)
+], CreateFilmeDto.prototype, "ano_lancamento", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
     __metadata("design:type", Number)
 ], CreateFilmeDto.prototype, "tempo_duracao", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Array)
+], CreateFilmeDto.prototype, "participantes", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", Array)
+], CreateFilmeDto.prototype, "genero", void 0);
 exports.CreateFilmeDto = CreateFilmeDto;
 //# sourceMappingURL=create-filme.dto.js.map

@@ -10,12 +10,14 @@ exports.ParticipantesModule = void 0;
 const common_1 = require("@nestjs/common");
 const participantes_service_1 = require("./participantes.service");
 const participantes_controller_1 = require("./participantes.controller");
+const prisma_module_1 = require("../prisma/prisma.module");
 let ParticipantesModule = class ParticipantesModule {
 };
 ParticipantesModule = __decorate([
     (0, common_1.Module)({
         providers: [participantes_service_1.ParticipantesService],
         controllers: [participantes_controller_1.ParticipantesController],
+        imports: [prisma_module_1.PrismaModule],
     })
 ], ParticipantesModule);
 exports.ParticipantesModule = ParticipantesModule;
